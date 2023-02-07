@@ -1,4 +1,4 @@
-name: Build unsigned APK (modifiable-action-and-data)
+name: Build APK (modifiable-action-and-data)
 
 on:
   push:
@@ -18,17 +18,17 @@ jobs:
         distribution: 'temurin'
         java-version: 11
         cache: 'gradle'
-    #- name: Prepare Android keystore
-    #  run: echo ${{ secrets.ENCODEDKEYSTORE }} | base64 --decode > ActivityLauncherApp/keystore.jks
+    - name: Prepare Android keystore
+      run: echo "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" | base64 --decode > ActivityLauncherApp/keystore.jks
     - name: Download dependencies
       run: ./gradlew androidDependencies
     - name: Build release APK
       run: ./gradlew assembleRelease
-    #  env:
-    #    KEYSTORE: keystore.jks
-    #    KEYSTORE_PASSWORD: ${{ secrets.KEYSTOREPASSWORD }}
-    #    KEY_ALIAS: ${{ secrets.KEYALIAS }}
-    #    KEY_PASSWORD: ${{ secrets.KEYPASSWORD }}
+      env:
+        KEYSTORE: keystore.jks
+        KEYSTORE_PASSWORD: 123456
+        KEY_ALIAS: client
+        KEY_PASSWORD: 123456
     - name: Upload release APK
       uses: actions/upload-artifact@v2
       with:
